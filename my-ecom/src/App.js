@@ -1,10 +1,12 @@
-import React from "react";
-import Button from '@mui/material/Button';
+import { Navbar } from "./components/Navbar";
+
+
 
 function App() {
   return (
-    <div>
-    <Button> Este es un Boton</Button>
+    <div className="App">
+      <Navbar />
+      
     </div>
   );
 }
