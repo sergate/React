@@ -1,7 +1,5 @@
-import React from 'react';
+import React from "react";
 
 export const ItemListContainer = ({ greeting }) => {
-  return (
-    <h1 style={{ backgroundColor: "orange"}}>{greeting}</h1>
-  )
-}
+  return <h1 style={{ backgroundColor: "orange" }}>{greeting}</h1>;
+};
