@@ -2,17 +2,18 @@ import { Navbar } from "./components/Navbar";
 import { ItemListContainer } from "./components/ItemListContainer";
 import Footer from "./components/Footer";
 
-
-
 function App() {
   return (
-    <div className="App">
-      <>
-      <Navbar />
-      <ItemListContainer greeting={"Hola Mundo!!!"} />
-      <Footer />
-      </>
-    </div>
+    <>
+      {
+        //* Los fragments siempre van por afuera de todo!
+      }
+      <div className="App">
+        <Navbar />
+        <ItemListContainer greeting="Hola Mundo!!!" />
+        <Footer />
+      </div>
+    </>
   );
 }
 
