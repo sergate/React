@@ -1,11 +1,19 @@
-import React from "react";
-import Button from '@mui/material/Button';
+import { Navbar } from "./components/Navbar";
+import { ItemListContainer } from "./components/ItemListContainer";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div>
-    <Button> Este es un Boton</Button>
-    </div>
+    <>
+      {
+        //* Los fragments siempre van por afuera de todo!
+      }
+      <div className="App">
+        <Navbar />
+        <ItemListContainer greeting="Hola Mundo!!!" />
+        <Footer />
+      </div>
+    </>
   );
 }
 
