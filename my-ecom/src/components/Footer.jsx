@@ -14,7 +14,7 @@ export default function Footer() {
         </li>
         <br />
         <Box textAlign="center" pt={{ xs: 5, sm: 10 }} pb={{ xs: 5, sm: 0 }}>
-          Todos los Derechos Reservados &reg; {new Date().getFullYear()}
+        Todos los Derechos Reservados &reg; {new Date().getFullYear()}
         </Box>
       </ul>
     </div>
