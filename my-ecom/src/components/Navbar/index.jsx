@@ -1,23 +1,102 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, Stack, Button } from "@mui/material";
-import { CartWidget } from "../CartWidget";
+import { AppBar, Button, IconButton, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import { useState } from "react";
+import MenuIcon from '@mui/icons-material/Menu';
+import CartWidget from "../CartWidget";
+import { Link } from "react-router-dom";
 
-export const Navbar = () => {
+const pages = [
+  { label: "INICIO", link: "/" },
+  { label: "NOSOTROS", link: "/Nosotros" },
+  { label: "TORTAS", link: "/categoria/tortas" },
+  { label: "DESAYUNOS", link: "/categoria/desayunos" },
+  { label: "MESAS TEMATICAS", link: "/categoria/mesas" },
+  { label: "CONTACTO", link: "/Contacto" },
+  { label: "CARRITO", link: "/Cart" },
+];
+
+function Navbar() {
+
+    const [anchorElNav, setAnchorElNav]= useState(null);
+
+    const handleOpenNavMenu = (event) => {
+        setAnchorElNav(event.currentTarget);
+    }
+
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null)
+    }
+
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Mara Bollo - Pasteleria Creativa
-        </Typography>
-        <Stack direction="row" spacing={1}>
-          <Button color="inherit">Inicio</Button>
-          <Button color="inherit">Quienes Somos</Button>
-          <Button color="inherit">Productos</Button>
-          <Button color="inherit">Como Comprar</Button>
-          <Button color="inherit">Contacto</Button>
-        </Stack>
-        <CartWidget />
-      </Toolbar>
-    </AppBar>
+    <div className="App">
+     <Box sx={{flexGrow: 1, marginBottom: 3}}>
+        <AppBar position="static" style={{ background: '#00b8d4' }}>
+            <Toolbar>
+                <Typography
+                    noWrap
+                    component="div"
+                    sx={{mr: 2, display: {xs: "none", md: "flex"}}}
+                >  
+                    <img src="https://i.ibb.co/vcHptxy/logo-definitivo-Mara-Bollo.webp" style={{width: 200, height: 120}} alt="LOGO MB"/>
+                </Typography>
+                <Box sx={{flexGrow: 1, display: {xs: "flex", md: "none"}}}>
+                <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+                  <Link style={{ textDecoration: 'none', color: 'white' }} to={page.link}>{page.label}</Link>
+                  </Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+
+                </Box>
+                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                  {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <Link style={{ textDecoration: 'none', color: 'white' }} to={page.link}>{page.label}</Link>
+              </Button>
+            ))}
+            </Box>
+            <Box sx={{ flexGrow: 0 }}>
+              <CartWidget />
+            </Box>
+          </Toolbar>
+        </AppBar>
+     </Box>
+    </div>
   );
-};
+}
+
+export default Navbar;
