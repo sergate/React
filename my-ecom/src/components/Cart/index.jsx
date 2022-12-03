@@ -32,11 +32,10 @@ const Cart = () => {
 	if (cart.length === 0) {
 		return (
 			<>
-				<p>No hay elementos en el carrito</p>
-				<Link to="/">Hacer compras</Link>
-			</>
-		);
-	}
+			<h2>NO AGREGASTE PRODUCTOS AL CARRITO</h2>
+			<h3>Mira nuestro productos artesanales haciendo <Link to="/">click aqui</Link></h3>
+		  	</>
+	)}
 
 	return (
 		<>
@@ -44,7 +43,10 @@ const Cart = () => {
 				<ItemCart key={product.id} product={product} />
 			))}
 			<p>total: {totalPrice()}</p>
-			<button onClick={handleClick}>Emitir compra</button>
+			<Link to="/checkout">
+				<button onClick={handleClick}>Emitir compra</button>
+			</Link>
+			
 		</>
 	);
 };
