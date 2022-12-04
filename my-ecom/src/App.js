@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Nosotros from "./components/Nosotros";
 import Contacto from "./components/Contacto";
+import Footer from "./components/Footer";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -24,6 +25,7 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/detalle/:detalleId" element={<ItemDetailContainer />} />
           </Routes>
+          <Footer />
         </CartProvider>
       </BrowserRouter>
   );

@@ -1,0 +1,14 @@
+.footer {
+    min-height: 20px;
+    bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    font-weight: bolder;
+    background-color: #00b8d4;
+    color: white;
+    top: 0px;
+  }
+.txt {
+    text-align: center;
+}
