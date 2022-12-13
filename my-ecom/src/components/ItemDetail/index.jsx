@@ -16,14 +16,15 @@ export const ItemDetail = ({ data }) => {
 	return (
 		<div className="container">
 			<div className="detail">
-			{/* <h1>{data.nombre}</h1> */}
 				<img className="detail__image" src={data.imagen} alt="" />
 				<div className="content">
 					<h1>{data.descripcion}</h1>
 					<h1>Precio: $ {data.precio}</h1>
 					<h1>Stock: {data.stock} Unidades</h1>
 					{goToCart ? (
-						<Link to="/cart"> Terminar la compra</Link>
+						<>
+						<Link to="/"> Seguir Comprando</Link>	<Link to="/cart"> Terminar la compra</Link>
+						</>
 					) : (
 						<ItemCount initial={1} stock={data.stock} onAdd={onAdd} />
 					)}

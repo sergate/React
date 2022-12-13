@@ -7,7 +7,9 @@
     font-weight: bolder;
     background-color: #00b8d4;
     color: white;
-    top: 0px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
 .txt {
     text-align: center;
